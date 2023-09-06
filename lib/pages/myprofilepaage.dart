@@ -84,7 +84,6 @@ class _ProfilePageState extends State<MyProfilePage> {
                 imageUrl: imageurls[index],
                 fit: BoxFit.fitWidth,
                 width: MediaQuery.of(context).size.width,
-                
               );
               // return Image.network(
               //   imageurls[index],

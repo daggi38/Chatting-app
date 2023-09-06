@@ -34,46 +34,87 @@ class _homepageState extends State<homepage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 122, 123, 123),
-        actions: [
-          GestureDetector(
-              onTap: () {
-                showSearch(context: context, delegate: mysearch());
-              },
-              child: Icon(Icons.search)),
-          IconButton(
-              onPressed: () {
-                signout();
-              },
-              icon: Icon(Icons.logout))
-        ],
-        title: Column(
-          children: [
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[300],
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 122, 123, 123),
+          actions: [
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MyProfilePage(
-                              recevierid: _auth.currentUser!.uid,
-                              recevieruseremail:
-                                  _auth.currentUser!.email.toString(),
-                            )));
-              },
-              child: Text(_auth.currentUser!.email.toString(),
-                  style: GoogleFonts.abel(
-                      textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ))),
-            ),
+                onTap: () {
+                  showSearch(context: context, delegate: mysearch());
+                },
+                child: Icon(Icons.search)),
+            IconButton(
+                onPressed: () {
+                  signout();
+                },
+                icon: Icon(Icons.logout))
+          ],
+          title: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyProfilePage(
+                                recevierid: _auth.currentUser!.uid,
+                                recevieruseremail:
+                                    _auth.currentUser!.email.toString(),
+                              )));
+                },
+                child: Text(_auth.currentUser!.email.toString(),
+                    style: GoogleFonts.abel(
+                        textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ))),
+              ),
+            ],
+          ),
+        ),
+        body: Column(
+          children: [
+            TabBar(tabs: [
+              Tab(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.grey,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.group,
+                  color: Colors.grey,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.wifi_channel,
+                  color: Colors.grey,
+                ),
+              )
+            ]),
+            Expanded(
+              child: TabBarView(children: [
+                Expanded(child: _builduserlist()),
+                Container(
+                  color: Colors.amber,
+                ),
+                Container(
+                  color: Colors.red,
+                )
+              ]),
+            )
           ],
         ),
+
+        // body: Column(
+        //   children: [Text("data"), Expanded(child: _builduserlist())],
+        // ),
       ),
-      body: _builduserlist(),
     );
   }
 

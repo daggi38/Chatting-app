@@ -20,8 +20,7 @@ class ChatService {
         recevierid: recevierid,
         message: message,
         timestamp: timestamp);
-
-    List<String> ids = [currentuserid, recevierid];
+        List<String> ids = [currentuserid, recevierid];
     ids.sort();
 
     String chatroomid = ids.join("_");
