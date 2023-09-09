@@ -99,7 +99,11 @@ class _homepageState extends State<homepage> {
             ]),
             Expanded(
               child: TabBarView(children: [
-                Expanded(child: _builduserlist()),
+                Expanded(
+                    child: Container(
+                        color: Colors.grey,
+                        height: MediaQuery.of(context).size.height,
+                        child: _builduserlist())),
                 Container(
                   color: Colors.amber,
                 ),
@@ -145,16 +149,11 @@ class _homepageState extends State<homepage> {
         imageurls.add(data['imageurl'][i]);
 
       return Padding(
-        padding:
-            const EdgeInsets.only(bottom: 8.0, top: 10, left: 10, right: 10),
+        padding: const EdgeInsets.only(
+          top: 3,
+        ),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-                colors: [Colors.grey[300]!, Colors.blue[200]!],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight),
-          ),
+          decoration: BoxDecoration(color: Colors.grey[600]),
           child: ListTile(
             // leading: ClipRRect(
             //   borderRadius: BorderRadius.circular(20),
