@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:mychat/components/profilecontainer.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -17,7 +17,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final newnamecontroller = TextEditingController();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<scrrollfromup>(create: (context) => scrrollfromup(),),
+        ChangeNotifierProvider<scrrollfromup>(
+          create: (context) => scrrollfromup(),
+        ),
         ChangeNotifierProvider<isobsecure>(create: (context) => isobsecure()),
         ChangeNotifierProvider<Authservice>(create: (context) => Authservice()),
       ],
@@ -37,5 +39,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Authgate());
+    //home: test());
   }
 }

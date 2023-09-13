@@ -5,7 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mychat/components/drawer.dart';
 import 'package:mychat/pages/chatpage.dart';
+import 'package:mychat/pages/test.dart';
 
 import 'package:provider/provider.dart';
 
@@ -37,6 +39,10 @@ class _homepageState extends State<homepage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        drawer: mydrawer(
+          inital: _auth.currentUser!.email.toString(),
+          email: _auth.currentUser!.email.toString(),
+        ),
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 122, 123, 123),
@@ -101,14 +107,36 @@ class _homepageState extends State<homepage> {
               child: TabBarView(children: [
                 Expanded(
                     child: Container(
-                        color: Colors.grey,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                Colors.grey[500]!,
+                                const Color.fromARGB(255, 39, 38, 38)
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter),
+                        ),
                         height: MediaQuery.of(context).size.height,
                         child: _builduserlist())),
                 Container(
-                  color: Colors.amber,
+                  child: Center(
+                    child: Text(
+                      "Coming Soon",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                 ),
                 Container(
-                  color: Colors.red,
+                  child: Center(
+                    child: Text(
+                      "Coming Soon",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                 )
               ]),
             )
@@ -153,16 +181,26 @@ class _homepageState extends State<homepage> {
           top: 3,
         ),
         child: Container(
-          decoration: BoxDecoration(color: Colors.grey[600]),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.grey[500]!,
+              const Color.fromARGB(255, 39, 38, 38)
+            ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+          ),
           child: ListTile(
-            // leading: ClipRRect(
-            //   borderRadius: BorderRadius.circular(20),
-            //   child: CachedNetworkImage(
-            //     height: 50,
-            //     width: 50,
-            //     imageUrl: imageurls[0],
-            //   ),
-            // ),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                  height: 50,
+                  width: 50,
+                  color: Color.fromARGB(255, 172, 200, 200),
+                  child: Center(
+                      child: Text(data['email']
+                          .toString()
+                          .characters
+                          .first
+                          .toUpperCase()))),
+            ),
             title: Text(data['email']),
             onTap: () {
               Navigator.push(

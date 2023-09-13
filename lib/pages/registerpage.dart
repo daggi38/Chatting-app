@@ -51,70 +51,68 @@ class _registerpageState extends State<registerpage> {
     final isshowing = Provider.of<isobsecure>(context);
     final show = isshowing.showing;
 
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Register now",
-                style:
-                    GoogleFonts.abel(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              textfields(
-                  ontap: () {},
-                  suffixicon: false,
-                  hinttext: "Email",
-                  obscuretext: false,
-                  controller: emailcontroller),
-              const SizedBox(
-                height: 15,
-              ),
-              textfields(
-                  ontap: () {
-                    isshowing.show();
-                  },
-                  suffixicon: true,
-                  hinttext: "Password",
-                  obscuretext: show,
-                  controller: passwordcontroller),
-              const SizedBox(
-                height: 15,
-              ),
-              textfields(
-                  ontap: () {
-                    isshowing.show();
-                  },
-                  suffixicon: true,
-                  hinttext: "Confirm Password",
-                  obscuretext: myobscuretext,
-                  controller: confirmpasswordcontroller),
-              const SizedBox(
-                height: 15,
-              ),
-              Mybutton(
-                  title: "Register",
-                  onpressed: () {
-                    register();
-                  }),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Already have an account ?"),
-                  GestureDetector(
-                      onTap: widget.togglepage, child: const Text("Login now"))
-                ],
-              )
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Register now",
+              style:
+                  GoogleFonts.abel(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            textfields(
+                ontap: () {},
+                suffixicon: false,
+                hinttext: "Email",
+                obscuretext: false,
+                controller: emailcontroller),
+            const SizedBox(
+              height: 15,
+            ),
+            textfields(
+                ontap: () {
+                  isshowing.show();
+                },
+                suffixicon: true,
+                hinttext: "Password",
+                obscuretext: show,
+                controller: passwordcontroller),
+            const SizedBox(
+              height: 15,
+            ),
+            textfields(
+                ontap: () {
+                  isshowing.show();
+                },
+                suffixicon: true,
+                hinttext: "Confirm Password",
+                obscuretext: myobscuretext,
+                controller: confirmpasswordcontroller),
+            const SizedBox(
+              height: 15,
+            ),
+            Mybutton(
+                title: "Register",
+                onpressed: () {
+                  register();
+                }),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Already have an account ?"),
+                GestureDetector(
+                    onTap: widget.togglepage, child: const Text("Login now"))
+              ],
+            )
+          ],
         ),
       ),
     );
