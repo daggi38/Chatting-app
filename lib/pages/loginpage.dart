@@ -25,7 +25,7 @@ class _LoginpageState extends State<Loginpage> {
   final TextEditingController passwordcontroller = TextEditingController();
   void signin() {
     final authservice = Provider.of<Authservice>(context, listen: false);
-    authservice.signIn(emailcontroller.text, passwordcontroller.text);
+    authservice.signIn(emailcontroller.text.trim(), passwordcontroller.text.trim());
   }
 
   @override
