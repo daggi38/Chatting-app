@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mychat/components/drawertile.dart';
+import 'package:mychat/pages/myprofilepaage.dart';
 
 class mydrawer extends StatelessWidget {
   final String email;
@@ -28,16 +30,24 @@ class mydrawer extends StatelessWidget {
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(50),
-                      child: Container(
-                          height: 70,
-                          width: 70,
-                          color: Color.fromARGB(255, 172, 200, 200),
-                          child: Center(
-                              child: Text(inital
-                                  .toString()
-                                  .characters
-                                  .first
-                                  .toUpperCase()))),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyProfilePage()));
+                        },
+                        child: Container(
+                            height: 70,
+                            width: 70,
+                            color: Color.fromARGB(255, 172, 200, 200),
+                            child: Center(
+                                child: Text(inital
+                                    .toString()
+                                    .characters
+                                    .first
+                                    .toUpperCase()))),
+                      ),
                     ),
                     SizedBox(
                       height: 10,
@@ -55,7 +65,11 @@ class mydrawer extends StatelessWidget {
             Drawertile(listtitle: "New channe;"),
             Drawertile(listtitle: "Contacts"),
             Drawertile(listtitle: "Folders"),
-            Drawertile(listtitle: "Saved"),
+            GestureDetector(
+                onTap: () {
+                  FirebaseAuth.instance.signOut();
+                },
+                child: Drawertile(listtitle: "Log out")),
           ],
         ),
       ),

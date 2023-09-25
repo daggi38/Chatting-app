@@ -17,8 +17,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final newnamecontroller = TextEditingController();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,26 +78,24 @@ class _ProfilePageState extends State<ProfilePage> {
           width: MediaQuery.of(context).size.width,
           height: 300,
           child: ListView.builder(
+            
             scrollDirection: Axis.horizontal,
             itemCount: data['imageurl'].length,
             itemBuilder: (context, index) {
               return CachedNetworkImage(
                 imageUrl: imageurls[index],
-                fit: BoxFit.fitWidth,
+
+
+
+
+ fit: BoxFit.fitWidth,
                 width: MediaQuery.of(context).size.width,
+
               );
             },
           ),
         ),
-        // Text(data['email'],
-        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        // Text(data['username'],
-        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        // SizedBox(
-        //   height: 10,
-        // ),
-        // Text(data['BIO'],
-        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+      
 
         profilecontainer(
             email: data['email'], username: data['username'], bio: data['BIO']),

@@ -11,10 +11,9 @@ import 'package:mychat/services/authservices.dart';
 import '../myprofilecontainer.dart';
 
 class MyProfilePage extends StatefulWidget {
-  final String recevieruseremail;
-  final String recevierid;
-  MyProfilePage(
-      {super.key, required this.recevierid, required this.recevieruseremail});
+  MyProfilePage({
+    super.key,
+  });
 
   @override
   State<MyProfilePage> createState() => _ProfilePageState();

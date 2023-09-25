@@ -46,7 +46,7 @@ class Authservice extends ChangeNotifier {
       "uid": userCredential.user!.uid,
       "username": email.substring(0, email.indexOf("@")),
       "BIO": "'Hi there! I'm using MyChat'",
-      'imageurl':["https://www.flaticon.com/free-icons/user" ]
+      'imageurl':["https://www.flaticon.com/free-icon/user_3177440?term=avatar&page=1&position=4&origin=search&related_id=3177440" ]
       
 
     }, SetOptions(merge: true));
