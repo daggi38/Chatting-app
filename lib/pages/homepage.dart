@@ -35,7 +35,7 @@ class _homepageState extends State<homepage> {
       length: 3,
       child: Scaffold(
         drawer: mydrawer(
-          inital: _auth.currentUser!.email.toString(),``
+          inital: _auth.currentUser!.email.toString(),
           email: _auth.currentUser!.email.toString(),
         ),
         backgroundColor: Colors.grey[300],
